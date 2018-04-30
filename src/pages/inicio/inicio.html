@@ -1,9 +1,3 @@
-<!--
-  Generated template for the InicioPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
     <ion-navbar color="primary">
@@ -12,12 +6,24 @@
         </button>
   <ion-title>inicio</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding>
-<h1>Ionic Pagina de inicio</h1>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis dignissimos laboriosam cupiditate voluptatem veritatis eaque. Error est at earum quis fuga reprehenderit beatae? Modi nam ullam deserunt quasi tempora magnam!</p>
-<button ion-button>Boton Inicio </button>
-</ion-content>
+  <button ion-button (click)="scan()">
+    Scan
+  </button>
+  <ion-list> 
+   <button ion-item *ngFor="let device of devices" (click)="deviceSelected(device)">
+     <h2>{{ device.name || 'Sin nombre' }}</h2>
+     <p>{{ device.id }}</p>
+     <p>RSSI: {{ device.rssi }}</p>
+     <pre>Detalle: {{ device | json }}</pre>
+   </button>  
+  </ion-list> 
+ </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <p>{{ statusMessage }}</p>
+  </ion-toolbar>
+</ion-footer>
