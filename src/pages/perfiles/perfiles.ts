@@ -18,37 +18,54 @@ export class PerfilesPage {
     public toastCtrl: ToastController,
     public ngZone: NgZone
   ) {
-     let device = navParams.get('device');
-    if (device){
-      this.setStatus('Conectando a ' + device.name || device.id);
+    let device = navParams.get('device');
 
-      this.ble.connect(device.id).subscribe(
-        peripheral => this.onConnected(peripheral),
-        peripheral => this.onDeviceDisconnected(peripheral)
-      );
+    if(device){
+      this.setStatus('Verificando estado Bluetooth');
+
+      this.ble.isEnabled()
+              .then(() => {
+                this.setStatus('Bluetooth activado');
+                this.conectarDispositivo(device);
+              })
+              .catch(() => {
+                this.setStatus('Activando bluetooth');
+                this.ble.enable().then(() => this.conectarDispositivo(device));
+              });
     }
+  }
+  conectarDispositivo(device){
+      this.setStatus('Conectando a ' + device.id);
+      this.ble.connect(device.id).subscribe(
+        peripheral => this.conexionExitosa(peripheral),
+        peripheral => this.conexionFallida(peripheral)
+      );
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PerfilesPage');
   }
   
-  onConnected(peripheral) {
+  conexionExitosa(peripheral) {
     this.ngZone.run(() => {
       this.setStatus('Conectado');
       this.peripheral = peripheral;
     });
   }
 
-  onDeviceDisconnected(peripheral) {
+  mostrarToast(msg:string){
     let toast = this.toastCtrl.create({
-      message: 'El periferico se ha desconectado',
-      duration: 3000,
-      position: 'middle'
+      message: msg,
+      position: 'middle',
+      duration: 5000
     });
     toast.present();
   }
-
+  
+  conexionFallida(peripheral) {
+    this.setStatus('Conexion fallida');
+    this.mostrarToast('El periferico no se ha podido conectar. Reintente.'+JSON.stringify(this.peripheral));  
+  }
   // Disconnect peripheral when leaving the page
   ionViewWillLeave() {
     console.log('ionViewWillLeave disconnecting Bluetooth');

@@ -35,13 +35,12 @@ export class InicioPage {
       device => this.onDeviceDiscovered(device), 
       error => this.scanError(error)
     );
-
     setTimeout(this.setStatus.bind(this), 5000, 'Escaneo completo');
   }
 
   onDeviceDiscovered(device) {
     console.log('Reconocido: ' + JSON.stringify(device, null, 2));
-    this.mostrarToast('Reconocido: ' + JSON.stringify(device, null, 2));
+    //this.mostrarToast('Reconocido: ' + JSON.stringify(device, null, 2));
     this.ngZone.run(() => {
       this.devices.push(device);
     });
