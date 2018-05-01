@@ -38,6 +38,22 @@ export class InicioPage {
     setTimeout(this.setStatus.bind(this), 5000, 'Escaneo completo');
   }
 
+  scanWithBluetoothVerification(){
+    this.setStatus('Verificando estado Bluetooth');
+    this.ble.isEnabled()
+            .then(() => {
+              this.setStatus('Bluetooth activado');
+              this.scan();
+            })
+            .catch(() => {
+              this.setStatus('Activando bluetooth');
+              this.ble.enable().then(() => this.scan());
+            });
+  }
+
+
+
+
   onDeviceDiscovered(device) {
     console.log('Reconocido: ' + JSON.stringify(device, null, 2));
     //this.mostrarToast('Reconocido: ' + JSON.stringify(device, null, 2));
