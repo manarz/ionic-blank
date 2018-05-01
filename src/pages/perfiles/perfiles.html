@@ -12,7 +12,7 @@
 <ion-content padding>
   <ion-card>
     <ion-card-header>
-      {{ peripheral.name || 'Unnamed' }}
+      {{ peripheral.name || 'Sin nombre' }}
     </ion-card-header>
     <ion-card-content>
       {{ peripheral.id }}
@@ -21,9 +21,8 @@
 
   <ion-card>
     <ion-card-header>
-Services
+      Services
     </ion-card-header>
-
     <ion-list>
       <ion-item *ngFor="let service of peripheral.services">
         {{service}}
