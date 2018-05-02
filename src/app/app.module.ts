@@ -4,6 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { BLE } from '@ionic-native/ble';
+import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
 
 import { MyApp } from './app.component';
 import { InicioPage } from '../pages/inicio/inicio';
@@ -40,6 +41,7 @@ import { AcercaPage } from '../pages/acerca/acerca';
     StatusBar,
     SplashScreen,
     BLE,
+    BluetoothSerial,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
