@@ -17,10 +17,10 @@ export class MyApp {
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
 
-    this.rootPage= InicioPage;
-    this.pages=[{titulo:"Inicio",   component:InicioPage  ,icon:"home"},
-                {titulo:"Perfiles", component:PerfilesPage,icon:"person"},
-                {titulo:"Contacto", component:ContactoPage,icon:"mail"},
+    this.rootPage= ContactoPage;
+    this.pages=[{titulo:"Mis dispositivos", component:ContactoPage,icon:"home"},
+                {titulo:"Bluetooth BLE",   component:InicioPage  ,icon:"mail"},
+                {titulo:"Detalle", component:PerfilesPage,icon:"apps"},
                 {titulo:"Acerca de",component:AcercaPage  ,icon:"information-circle"}
     ];
     platform.ready().then(() => {
