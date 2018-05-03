@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { BLE } from '@ionic-native/ble';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
+import { SMS } from '@ionic-native/sms';
 
 import { MyApp } from './app.component';
 import { InicioPage } from '../pages/inicio/inicio';
@@ -42,6 +43,7 @@ import { AcercaPage } from '../pages/acerca/acerca';
     SplashScreen,
     BLE,
     BluetoothSerial,
+    SMS,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

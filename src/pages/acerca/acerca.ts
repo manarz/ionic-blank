@@ -1,20 +1,40 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { SMS } from '@ionic-native/sms';
 
-/**
- * Generated class for the AcercaPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @Component({
   selector: 'page-acerca',
   templateUrl: 'acerca.html',
 })
 export class AcercaPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  data:{numero:string,mensaje:string };
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public sms: SMS,
+    private alertCtrl: AlertController
+  ) {
+    this.data = { numero:"", mensaje:"" };
+  }
+  enviarSMS() {
+    this.sms.send(this.data.numero,this.data.mensaje)
+    .then(()=>{
+      let alert = this.alertCtrl.create({
+        title: 'Mensaje enviado',
+        message: 'Mensaje enviado con exito',
+        buttons: ['Ok']
+      });
+      alert.present();
+    })
+    .catch(()=>{
+      let alert = this.alertCtrl.create({
+        title: 'Error',
+        message: 'No se ha podido enviar el mensaje!',
+        buttons: ['Ok']
+      });
+      alert.present();
+    });
   }
 
   ionViewDidLoad() {

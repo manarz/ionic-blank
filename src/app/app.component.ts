@@ -19,13 +19,11 @@ export class MyApp {
 
     this.rootPage= ContactoPage;
     this.pages=[{titulo:"Mis dispositivos", component:ContactoPage,icon:"home"},
-                {titulo:"Bluetooth BLE",   component:InicioPage  ,icon:"mail"},
+                {titulo:"Bluetooth BLE",   component:InicioPage  ,icon:"information-circle"},
                 {titulo:"Detalle", component:PerfilesPage,icon:"apps"},
-                {titulo:"Acerca de",component:AcercaPage  ,icon:"information-circle"}
+                {titulo:"Notificaciones",component:AcercaPage  ,icon:"mail"}
     ];
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
     });
