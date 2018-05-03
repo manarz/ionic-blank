@@ -25,6 +25,7 @@ export class AcercaPage {
         message: 'Mensaje enviado con exito',
         buttons: ['Ok']
       });
+      this.data = { numero:"", mensaje:"" };
       alert.present();
     })
     .catch(()=>{

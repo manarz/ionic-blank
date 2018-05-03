@@ -10,8 +10,14 @@ import { SMS } from '@ionic-native/sms';
 import { MyApp } from './app.component';
 import { InicioPage } from '../pages/inicio/inicio';
 import { PerfilesPage } from '../pages/perfiles/perfiles';
-import { ContactoPage } from '../pages/contacto/contacto';
 import { AcercaPage } from '../pages/acerca/acerca';
+import { MisCerradurasPage } from '../pages/mis-cerraduras/mis-cerraduras';
+import { MisRedesPage } from '../pages/mis-redes/mis-redes';
+import { VincularBluetoothPage } from '../pages/vincular-bluetooth/vincular-bluetooth';
+
+
+
+MisCerradurasPage
 
 
 @NgModule({
@@ -20,8 +26,10 @@ import { AcercaPage } from '../pages/acerca/acerca';
 
     InicioPage,
     PerfilesPage,
-    ContactoPage,
-    AcercaPage
+    AcercaPage,
+    MisCerradurasPage,
+    MisRedesPage,
+    VincularBluetoothPage
 
   ],
   imports: [
@@ -34,8 +42,11 @@ import { AcercaPage } from '../pages/acerca/acerca';
  
     InicioPage,
     PerfilesPage,
-    ContactoPage,
-    AcercaPage
+    AcercaPage,
+    MisCerradurasPage,
+    MisRedesPage,
+    VincularBluetoothPage
+
  
   ],
   providers: [

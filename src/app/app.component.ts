@@ -5,8 +5,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { InicioPage } from '../pages/inicio/inicio';
 import { PerfilesPage } from '../pages/perfiles/perfiles';
-import { ContactoPage } from '../pages/contacto/contacto';
 import { AcercaPage } from '../pages/acerca/acerca';
+import { MisCerradurasPage } from '../pages/mis-cerraduras/mis-cerraduras';
+import { MisRedesPage } from '../pages/mis-redes/mis-redes';
+import { VincularBluetoothPage } from '../pages/vincular-bluetooth/vincular-bluetooth';
+
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -17,11 +21,15 @@ export class MyApp {
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
 
-    this.rootPage= ContactoPage;
-    this.pages=[{titulo:"Mis dispositivos", component:ContactoPage,icon:"home"},
+    this.rootPage= MisCerradurasPage;
+    this.pages=[{titulo:"Cerraduras y llaves", component: MisCerradurasPage,icon:"key"},
+                {titulo:"Vincular Bluetooth",  component: VincularBluetoothPage, icon:"bluetooth"},
+                {titulo:"Mis Redes",           component: MisRedesPage,icon:"wifi"},
+
+                {titulo:"Notificaciones sms",component:AcercaPage  ,icon:"mail"},
                 {titulo:"Bluetooth BLE",   component:InicioPage  ,icon:"information-circle"},
-                {titulo:"Detalle", component:PerfilesPage,icon:"apps"},
-                {titulo:"Notificaciones",component:AcercaPage  ,icon:"mail"}
+                {titulo:"Detalle BLE", component:PerfilesPage,icon:"code-working"},
+
     ];
     platform.ready().then(() => {
       statusBar.styleDefault();

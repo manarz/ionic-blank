@@ -4,10 +4,10 @@ import { NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 
 @Component({
-  selector: 'page-contacto',
-  templateUrl: 'contacto.html',
+  selector: 'page-vincular-bluetooth',
+  templateUrl: 'vincular-bluetooth.html',
 })
-export class ContactoPage {
+export class VincularBluetoothPage {
   dispositivosVisibles: any;
   gettingDevices: Boolean;
   statusMessage: string;
@@ -107,5 +107,6 @@ export class ContactoPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ContactoPage');
   }
+
 
 }
