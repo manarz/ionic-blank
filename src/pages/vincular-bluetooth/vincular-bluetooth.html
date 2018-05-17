@@ -23,7 +23,7 @@
         <ion-spinner name="crescent" *ngIf="gettingDevices"></ion-spinner>
       </ion-list>
       <ion-fab left bottom>
-          <button ion-fab color="danger" *ngIf="conectado" (click)="disconnect()"><ion-icon name="close-circle"></ion-icon></button>
+          <button ion-fab color="danger" (click)="disconnect()"><ion-icon name="close-circle"></ion-icon></button>
       </ion-fab>
        <ion-fab right bottom>
           <button ion-fab color="danger" (click)="startScanning()"><ion-icon name="bluetooth"></ion-icon></button>

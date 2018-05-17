@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { BLE } from '@ionic-native/ble';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
 import { SMS } from '@ionic-native/sms';
+import { HTTP } from '@ionic-native/http';
 
 import { MyApp } from './app.component';
 import { InicioPage } from '../pages/inicio/inicio';
@@ -55,6 +56,7 @@ MisCerradurasPage
     BLE,
     BluetoothSerial,
     SMS,
+    HTTP,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
