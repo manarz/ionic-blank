@@ -10,6 +10,8 @@ import { NavController, NavParams, AlertController } from 'ionic-angular';
 })
 export class MisCerradurasPage {
   public cerraduraAbierta:boolean;
+  public listadoCerraduras: any[] = [];
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
@@ -17,18 +19,23 @@ export class MisCerradurasPage {
     public alertCtrl: AlertController
 
   ) {
-    this.cerraduraAbierta=false;
+    this.cerraduraAbierta = false;
+
+    this.listadoCerraduras=[{ esPropia: true,  descripcion: "Mi puerta frontal de casa", estaAbierta: true , celular:["1138144570"], redWifi:[{ssid:"fiber1",pass:"12345"}] },
+                            { esPropia: false, descripcion: "Garage de Matias",          estaAbierta: false, celular:["3372"],       redWifi:[{ssid:"fiber2",pass:"pepe1"}] } 
+    ];
+   
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MisCerradurasPage');
   }
-  public commandByWifi(urlData:any){
+  public commandByWifi(urlData:any,cerradura:any){
     console.log('open wifi');
     //alert(JSON.stringify(urlData));
-    this.http.get('http://' + urlData.url, {LED:(this.cerraduraAbierta)?'OFF':'ON'}, {})
+    this.http.get('http://' + urlData.url, {LED:(cerradura.estaAbierta)?'OFF':'ON'}, {})
   .then(data => {
-    this.cerraduraAbierta=!this.cerraduraAbierta;
+    cerradura.estaAbierta=!cerradura.estaAbierta;
     alert(JSON.stringify(data));
   })
   .catch(error => {
@@ -36,9 +43,9 @@ export class MisCerradurasPage {
   });
   
   }
-  showPrompt() {
+  toogleAperturaWifi(cerradura) {
     let prompt = this.alertCtrl.create({
-      title: (this.cerraduraAbierta)?'Cerrar':'Abrir',
+      title: (cerradura.estaAbierta)?'Cerrar':'Abrir',
       message: "Ingrese la url (solo para testing)",
       inputs: [
         {
@@ -57,7 +64,7 @@ export class MisCerradurasPage {
           text: 'Confirmar',
           handler: data => {
             console.log(JSON.stringify(data));
-            this.commandByWifi(data);
+            this.commandByWifi(data, cerradura);
           }
         }
       ]
