@@ -13,7 +13,7 @@ import { InicioPage } from '../pages/inicio/inicio';
 import { PerfilesPage } from '../pages/perfiles/perfiles';
 import { AcercaPage } from '../pages/acerca/acerca';
 import { MisCerradurasPage } from '../pages/mis-cerraduras/mis-cerraduras';
-import { MisRedesPage } from '../pages/mis-redes/mis-redes';
+import { RedListadoPage } from '../pages/red-listado/red-listado';
 import { VincularBluetoothPage } from '../pages/vincular-bluetooth/vincular-bluetooth';
 import { RedAltaPage } from '../pages/red-alta/red-alta';
 import { RedesProvider } from '../providers/redes/redes';
@@ -29,7 +29,7 @@ import { CerradurasProvider } from '../providers/cerraduras/cerraduras';
     PerfilesPage,
     AcercaPage,
     MisCerradurasPage,
-    MisRedesPage,
+    RedListadoPage,
     VincularBluetoothPage,
     RedAltaPage
 
@@ -46,7 +46,7 @@ import { CerradurasProvider } from '../providers/cerraduras/cerraduras';
     PerfilesPage,
     AcercaPage,
     MisCerradurasPage,
-    MisRedesPage,
+    RedListadoPage,
     VincularBluetoothPage,
     RedAltaPage
   ],

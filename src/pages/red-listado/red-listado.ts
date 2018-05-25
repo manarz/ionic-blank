@@ -6,10 +6,10 @@ import { RedesProvider } from '../../providers/redes/redes';
 
 
 @Component({
-  selector: 'page-mis-redes',
-  templateUrl: 'mis-redes.html',
+  selector: 'page-red-listado',
+  templateUrl: 'red-listado.html',
 })
-export class MisRedesPage {
+export class RedListadoPage {
   public listadoRedes: any[];
 
   constructor(
