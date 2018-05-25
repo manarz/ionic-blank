@@ -15,14 +15,10 @@ import { AcercaPage } from '../pages/acerca/acerca';
 import { MisCerradurasPage } from '../pages/mis-cerraduras/mis-cerraduras';
 import { MisRedesPage } from '../pages/mis-redes/mis-redes';
 import { VincularBluetoothPage } from '../pages/vincular-bluetooth/vincular-bluetooth';
-import { RedDetallePage } from '../pages/red-detalle/red-detalle';
-import { UsersProvider } from '../providers/users/users';
+import { RedAltaPage } from '../pages/red-alta/red-alta';
 import { RedesProvider } from '../providers/redes/redes';
 import { CerradurasProvider } from '../providers/cerraduras/cerraduras';
 
-
-
-MisCerradurasPage
 
 
 @NgModule({
@@ -35,7 +31,7 @@ MisCerradurasPage
     MisCerradurasPage,
     MisRedesPage,
     VincularBluetoothPage,
-    RedDetallePage
+    RedAltaPage
 
   ],
   imports: [
@@ -52,7 +48,7 @@ MisCerradurasPage
     MisCerradurasPage,
     MisRedesPage,
     VincularBluetoothPage,
-    RedDetallePage
+    RedAltaPage
   ],
   providers: [
     StatusBar,
@@ -62,7 +58,6 @@ MisCerradurasPage
     SMS,
     HTTP,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UsersProvider,
     RedesProvider,
     CerradurasProvider
   ]

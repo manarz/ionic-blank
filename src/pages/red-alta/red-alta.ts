@@ -5,10 +5,10 @@ import { MisRedesPage } from '../mis-redes/mis-redes';
 import { RedesProvider } from '../../providers/redes/redes';
 
 @Component({
-  selector: 'page-red-detalle',
-  templateUrl: 'red-detalle.html',
+  selector: 'page-red-alta',
+  templateUrl: 'red-alta.html',
 })
-export class RedDetallePage {
+export class RedAltaPage {
   myForm: FormGroup;
   constructor (
     public redesProv: RedesProvider,

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { RedDetallePage } from '../red-detalle/red-detalle';
+import { RedAltaPage } from '../red-alta/red-alta';
 import { RedesProvider } from '../../providers/redes/redes';
 
 
@@ -25,6 +25,6 @@ export class MisRedesPage {
     console.log('ionViewDidLoad MisRedesPage');
   }
   nuevaRed(){
-    this.navCtrl.push(RedDetallePage);
+    this.navCtrl.push(RedAltaPage);
   }
 }
