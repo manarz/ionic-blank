@@ -3,14 +3,13 @@ import { Component } from '@angular/core';
 import { HTTP } from '@ionic-native/http';
 
 import { NavController, NavParams, AlertController } from 'ionic-angular';
-import { UsersProvider } from '../../providers/users/users'
+import { CerradurasProvider } from '../../providers/cerraduras/cerraduras'
 
 @Component({
   selector: 'page-mis-cerraduras',
   templateUrl: 'mis-cerraduras.html',
 })
 export class MisCerradurasPage {
-  public cerraduraAbierta:boolean;
   public listadoCerraduras: any[];
 
   constructor(
@@ -18,21 +17,18 @@ export class MisCerradurasPage {
     public navParams: NavParams, 
     public http: HTTP,
     public alertCtrl: AlertController,
-    public usersProv: UsersProvider
+    public cerradurasProv: CerradurasProvider
   ) {
-    this.cerraduraAbierta = false;
-
-    this.listadoCerraduras = this.usersProv.getUsers();
-   
+    this.listadoCerraduras = this.cerradurasProv.getCerraduras();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MisCerradurasPage');
   }
   public commandByWifi(urlData:any,cerradura:any){
-    console.log('open wifi');
+    //console.log('open wifi');
     //alert(JSON.stringify(urlData));
-    this.http.get('http://' + urlData.url, {LED:(cerradura.estaAbierta)?'OFF':'ON'}, {})
+    this.http.get('http://' + urlData.url, { LED:(cerradura.estaAbierta) ? 'OFF' : 'ON' }, {})
   .then(data => {
     cerradura.estaAbierta=!cerradura.estaAbierta;
     alert(JSON.stringify(data));

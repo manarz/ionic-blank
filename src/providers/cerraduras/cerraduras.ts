@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class UsersProvider {
+export class CerradurasProvider {
 
   constructor() {
-    console.log('Hello UsersProvider Provider');
   }
-  public getUsers(){
+  public getCerraduras(){
     return [{ esPropia: true,  descripcion: "Mi puerta frontal de casa", estaAbierta: true , celular:["1138144570"], redWifi:[{ssid:"fiber1",pass:"12345"}] },
                               { esPropia: true,  descripcion: "Mi puerta de atras de casa", estaAbierta: false, celular:["3372"],       redWifi:[{ssid:"fiber2",pass:"pepe1"}] } ,
                               { esPropia: true,  descripcion: "Mi garage",                  estaAbierta: false, celular:["3372"],       redWifi:[{ssid:"fiber2",pass:"pepe1"}] } ,

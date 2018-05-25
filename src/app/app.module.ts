@@ -18,6 +18,7 @@ import { VincularBluetoothPage } from '../pages/vincular-bluetooth/vincular-blue
 import { RedDetallePage } from '../pages/red-detalle/red-detalle';
 import { UsersProvider } from '../providers/users/users';
 import { RedesProvider } from '../providers/redes/redes';
+import { CerradurasProvider } from '../providers/cerraduras/cerraduras';
 
 
 
@@ -62,7 +63,8 @@ MisCerradurasPage
     HTTP,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UsersProvider,
-    RedesProvider
+    RedesProvider,
+    CerradurasProvider
   ]
 })
 export class AppModule {}
