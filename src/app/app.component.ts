@@ -11,6 +11,7 @@ import { MisRedesPage } from '../pages/mis-redes/mis-redes';
 import { VincularBluetoothPage } from '../pages/vincular-bluetooth/vincular-bluetooth';
 
 
+
 @Component({
   templateUrl: 'app.html'
 })

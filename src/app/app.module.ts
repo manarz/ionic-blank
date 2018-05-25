@@ -15,6 +15,9 @@ import { AcercaPage } from '../pages/acerca/acerca';
 import { MisCerradurasPage } from '../pages/mis-cerraduras/mis-cerraduras';
 import { MisRedesPage } from '../pages/mis-redes/mis-redes';
 import { VincularBluetoothPage } from '../pages/vincular-bluetooth/vincular-bluetooth';
+import { RedDetallePage } from '../pages/red-detalle/red-detalle';
+import { UsersProvider } from '../providers/users/users';
+import { RedesProvider } from '../providers/redes/redes';
 
 
 
@@ -30,7 +33,8 @@ MisCerradurasPage
     AcercaPage,
     MisCerradurasPage,
     MisRedesPage,
-    VincularBluetoothPage
+    VincularBluetoothPage,
+    RedDetallePage
 
   ],
   imports: [
@@ -46,9 +50,8 @@ MisCerradurasPage
     AcercaPage,
     MisCerradurasPage,
     MisRedesPage,
-    VincularBluetoothPage
-
- 
+    VincularBluetoothPage,
+    RedDetallePage
   ],
   providers: [
     StatusBar,
@@ -57,7 +60,9 @@ MisCerradurasPage
     BluetoothSerial,
     SMS,
     HTTP,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    UsersProvider,
+    RedesProvider
   ]
 })
 export class AppModule {}

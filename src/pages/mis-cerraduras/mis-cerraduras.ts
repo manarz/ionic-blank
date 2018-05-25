@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { HTTP } from '@ionic-native/http';
 
 import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { UsersProvider } from '../../providers/users/users'
 
 @Component({
   selector: 'page-mis-cerraduras',
@@ -10,20 +11,18 @@ import { NavController, NavParams, AlertController } from 'ionic-angular';
 })
 export class MisCerradurasPage {
   public cerraduraAbierta:boolean;
-  public listadoCerraduras: any[] = [];
+  public listadoCerraduras: any[];
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public http: HTTP,
-    public alertCtrl: AlertController
-
+    public alertCtrl: AlertController,
+    public usersProv: UsersProvider
   ) {
     this.cerraduraAbierta = false;
 
-    this.listadoCerraduras=[{ esPropia: true,  descripcion: "Mi puerta frontal de casa", estaAbierta: true , celular:["1138144570"], redWifi:[{ssid:"fiber1",pass:"12345"}] },
-                            { esPropia: false, descripcion: "Garage de Matias",          estaAbierta: false, celular:["3372"],       redWifi:[{ssid:"fiber2",pass:"pepe1"}] } 
-    ];
+    this.listadoCerraduras = this.usersProv.getUsers();
    
   }
 
@@ -43,7 +42,7 @@ export class MisCerradurasPage {
   });
   
   }
-  toogleAperturaWifi(cerradura) {
+  public toogleAperturaWifi(cerradura) {
     let prompt = this.alertCtrl.create({
       title: (cerradura.estaAbierta)?'Cerrar':'Abrir',
       message: "Ingrese la url (solo para testing)",

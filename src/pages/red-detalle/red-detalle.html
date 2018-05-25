@@ -1,0 +1,29 @@
+<ion-header>
+
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+
+        <ion-title>Nueva Red</ion-title>  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    
+    <ion-list>
+    
+      <ion-item>
+        <ion-label stacked>Ssid</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label stacked>Password</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+      <button ion-button (click)="agregarRed()">Agregar </button>
+    </ion-list>
+    
+    
+
+</ion-content>
