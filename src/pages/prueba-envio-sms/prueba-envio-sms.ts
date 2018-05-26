@@ -4,10 +4,10 @@ import { SMS } from '@ionic-native/sms';
 
 
 @Component({
-  selector: 'page-acerca',
-  templateUrl: 'acerca.html',
+  selector: 'page-prueba-envio-sms',
+  templateUrl: 'prueba-envio-sms.html',
 })
-export class AcercaPage {
+export class PruebaEnvioSmsPage {
   data:{numero:string,mensaje:string };
   constructor(
     public navCtrl: NavController, 

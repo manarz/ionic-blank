@@ -2,14 +2,14 @@ import { Component, NgZone } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { BLE } from '@ionic-native/ble';
 import { ToastController } from 'ionic-angular';
-import { PerfilesPage } from '../perfiles/perfiles';
+import { PruebaBleDetalleConexionPage } from '../prueba-ble-detalle-conexion/prueba-ble-detalle-conexion';
 
 
 @Component({
-  selector: 'page-inicio',
-  templateUrl: 'inicio.html',
+  selector: 'page-prueba-ble-listar-dispositivos',
+  templateUrl: 'prueba-ble-listar-dispositivos.html',
 })
-export class InicioPage {
+export class PruebaBleListarDispositivosPage {
   devices: any[] = [];
   statusMessage: string;
 
@@ -84,7 +84,7 @@ export class InicioPage {
 
   deviceSelected(device) {
     console.log(JSON.stringify(device) + ' selected');
-    this.navCtrl.push(PerfilesPage, {
+    this.navCtrl.push(PruebaBleDetalleConexionPage, {
       device: device
     });
   }

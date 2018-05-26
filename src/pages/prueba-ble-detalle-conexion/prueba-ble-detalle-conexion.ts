@@ -4,10 +4,10 @@ import { ToastController } from 'ionic-angular';
 import { BLE } from '@ionic-native/ble';
 
 @Component({
-  selector: 'page-perfiles',
-  templateUrl: 'perfiles.html',
+  selector: 'page-prueba-ble-detalle-conexion',
+  templateUrl: 'prueba-ble-detalle-conexion.html',
 })
-export class PerfilesPage {
+export class PruebaBleDetalleConexionPage {
   peripheral: any = {};
   statusMessage: string;
 

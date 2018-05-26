@@ -3,13 +3,14 @@ import { Component } from '@angular/core';
 import { HTTP } from '@ionic-native/http';
 
 import { NavController, NavParams, AlertController } from 'ionic-angular';
-import { CerradurasProvider } from '../../providers/cerraduras/cerraduras'
+import { CerradurasProvider } from '../../providers/cerraduras/cerraduras';
+import { CerraduraAltaPage } from '../cerradura-alta/cerradura-alta';
 
 @Component({
-  selector: 'page-mis-cerraduras',
-  templateUrl: 'mis-cerraduras.html',
+  selector: 'page-cerradura-listado',
+  templateUrl: 'cerradura-listado.html',
 })
-export class MisCerradurasPage {
+export class CerraduraListadoPage {
   public listadoCerraduras: any[];
 
   constructor(
@@ -66,8 +67,7 @@ export class MisCerradurasPage {
     });
     prompt.present();
   }
-
-
-
-
+  public nuevaCerradura(){
+    this.navCtrl.push(CerraduraAltaPage);
+  }
 }

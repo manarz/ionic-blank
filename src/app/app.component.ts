@@ -3,10 +3,10 @@ import { Platform, Nav} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { InicioPage } from '../pages/inicio/inicio';
-import { PerfilesPage } from '../pages/perfiles/perfiles';
-import { AcercaPage } from '../pages/acerca/acerca';
-import { MisCerradurasPage } from '../pages/mis-cerraduras/mis-cerraduras';
+import { PruebaBleListarDispositivosPage } from '../pages/prueba-ble-listar-dispositivos/prueba-ble-listar-dispositivos';
+import { PruebaBleDetalleConexionPage } from '../pages/prueba-ble-detalle-conexion/prueba-ble-detalle-conexion';
+import { PruebaEnvioSmsPage } from '../pages/prueba-envio-sms/prueba-envio-sms';
+import { CerraduraListadoPage } from '../pages/cerradura-listado/cerradura-listado';
 import { RedListadoPage } from '../pages/red-listado/red-listado';
 import { VincularBluetoothPage } from '../pages/vincular-bluetooth/vincular-bluetooth';
 
@@ -22,14 +22,14 @@ export class MyApp {
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
 
-    this.rootPage= MisCerradurasPage;
-    this.pages=[{titulo:"Cerraduras y llaves", component: MisCerradurasPage,icon:"key"},
+    this.rootPage = CerraduraListadoPage;
+    this.pages=[{titulo:"Cerraduras y llaves", component: CerraduraListadoPage,icon:"key"},
                 {titulo:"Vincular Bluetooth",  component: VincularBluetoothPage, icon:"bluetooth"},
                 {titulo:"Mis Redes",           component: RedListadoPage,icon:"wifi"},
 
-                {titulo:"Notificaciones sms",component:AcercaPage  ,icon:"mail"},
-                {titulo:"Bluetooth BLE",   component:InicioPage  ,icon:"information-circle"},
-                {titulo:"Detalle BLE", component:PerfilesPage,icon:"code-working"},
+                {titulo:"Notificaciones sms",  component:PruebaEnvioSmsPage  ,icon:"mail"},
+                {titulo:"Bluetooth BLE",       component:PruebaBleListarDispositivosPage  ,icon:"information-circle"},
+                {titulo:"Detalle BLE",         component:PruebaBleDetalleConexionPage,icon:"code-working"},
 
     ];
     platform.ready().then(() => {

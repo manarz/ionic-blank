@@ -9,13 +9,15 @@ import { SMS } from '@ionic-native/sms';
 import { HTTP } from '@ionic-native/http';
 
 import { MyApp } from './app.component';
-import { InicioPage } from '../pages/inicio/inicio';
-import { PerfilesPage } from '../pages/perfiles/perfiles';
-import { AcercaPage } from '../pages/acerca/acerca';
-import { MisCerradurasPage } from '../pages/mis-cerraduras/mis-cerraduras';
+import { PruebaBleListarDispositivosPage } from '../pages/prueba-ble-listar-dispositivos/prueba-ble-listar-dispositivos';
+import { PruebaBleDetalleConexionPage } from '../pages/prueba-ble-detalle-conexion/prueba-ble-detalle-conexion';
+import { PruebaEnvioSmsPage } from '../pages/prueba-envio-sms/prueba-envio-sms';
+import { CerraduraListadoPage } from '../pages/cerradura-listado/cerradura-listado';
 import { RedListadoPage } from '../pages/red-listado/red-listado';
 import { VincularBluetoothPage } from '../pages/vincular-bluetooth/vincular-bluetooth';
 import { RedAltaPage } from '../pages/red-alta/red-alta';
+import { CerraduraAltaPage } from '../pages/cerradura-alta/cerradura-alta';
+
 import { RedesProvider } from '../providers/redes/redes';
 import { CerradurasProvider } from '../providers/cerraduras/cerraduras';
 
@@ -25,14 +27,14 @@ import { CerradurasProvider } from '../providers/cerraduras/cerraduras';
   declarations: [
     MyApp,
 
-    InicioPage,
-    PerfilesPage,
-    AcercaPage,
-    MisCerradurasPage,
+    PruebaBleListarDispositivosPage,
+    PruebaBleDetalleConexionPage,
+    PruebaEnvioSmsPage,
+    CerraduraListadoPage,
     RedListadoPage,
     VincularBluetoothPage,
-    RedAltaPage
-
+    RedAltaPage,
+    CerraduraAltaPage
   ],
   imports: [
     BrowserModule,
@@ -42,13 +44,14 @@ import { CerradurasProvider } from '../providers/cerraduras/cerraduras';
   entryComponents: [
     MyApp,
  
-    InicioPage,
-    PerfilesPage,
-    AcercaPage,
-    MisCerradurasPage,
+    PruebaBleListarDispositivosPage,
+    PruebaBleDetalleConexionPage,
+    PruebaEnvioSmsPage,
+    CerraduraListadoPage,
     RedListadoPage,
     VincularBluetoothPage,
-    RedAltaPage
+    RedAltaPage,
+    CerraduraAltaPage
   ],
   providers: [
     StatusBar,
