@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 
 import { HTTP } from '@ionic-native/http';
+import { HttpCommandsProvider } from '../../providers/http-commands/http-commands';
 
-import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, Item, ItemSliding  } from 'ionic-angular';
 import { CerradurasProvider } from '../../providers/cerraduras/cerraduras';
+import { SmsProvider } from '../../providers/sms/sms';
+
 import { CerraduraAltaPage } from '../cerradura-alta/cerradura-alta';
 
 @Component({
@@ -18,56 +21,39 @@ export class CerraduraListadoPage {
     public navParams: NavParams, 
     public http: HTTP,
     public alertCtrl: AlertController,
-    public cerradurasProv: CerradurasProvider
+    public cerradurasProv: CerradurasProvider,
+    public httpCommandsProv: HttpCommandsProvider,
+    public smsCommandsProv: SmsProvider
   ) {
     this.listadoCerraduras = this.cerradurasProv.getCerraduras();
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MisCerradurasPage');
   }
-  public commandByWifi(urlData:any,cerradura:any){
-    //console.log('open wifi');
-    //alert(JSON.stringify(urlData));
-    this.http.get('http://' + urlData.url, { LED:(cerradura.estaAbierta) ? 'OFF' : 'ON' }, {})
-  .then(data => {
-    cerradura.estaAbierta=!cerradura.estaAbierta;
-    alert(JSON.stringify(data));
-  })
-  .catch(error => {
-    alert(JSON.stringify(error));
-  });
-  
+  public openOption(itemSlide: ItemSliding) {
+    let swipeAmount=350;
+
+    itemSlide.startSliding(swipeAmount);
+    itemSlide.moveSliding(swipeAmount);
+    
+    itemSlide.setElementClass('active-options-right', true);
+    itemSlide.setElementClass('active-swipe-right', true);
+
+    //item.setElementStyle('transition', null);
+    //item.setElementStyle('transform', 'translate3d(-'+swipeAmount+'px, 0px, 0px)');
   }
-  public toogleAperturaWifi(cerradura) {
-    let prompt = this.alertCtrl.create({
-      title: (cerradura.estaAbierta)?'Cerrar':'Abrir',
-      message: "Ingrese la url (solo para testing)",
-      inputs: [
-        {
-          name: 'url',
-          placeholder: 'localhost:8080'
-        },
-      ],
-      buttons: [
-        {
-          text: 'Cancelar',
-          handler: data => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'Confirmar',
-          handler: data => {
-            console.log(JSON.stringify(data));
-            this.commandByWifi(data, cerradura);
-          }
-        }
-      ]
-    });
-    prompt.present();
-  }
+
   public nuevaCerradura(){
     this.navCtrl.push(CerraduraAltaPage);
+  }
+
+  public toogleAperturaWifi(cerradura) {
+    this.httpCommandsProv.toogleStatusCerradura(cerradura);
+  }
+  public toogleAperturaSms(cerradura){
+    this.smsCommandsProv.toogleStatusCerradura(cerradura);
+  }
+  public toogleAperturaBluetooth(cerradura){
+
   }
 }

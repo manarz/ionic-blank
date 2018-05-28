@@ -21,7 +21,7 @@ export class CerraduraAltaPage {
     return this.formBuilder.group({
       esPropia:    [true],
       descripcion: ['', Validators.required],
-      celular:     ['3372', Validators.required],
+      celular:     ['', Validators.required],
       estaAbierta: [true]
     });
   }

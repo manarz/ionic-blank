@@ -11,32 +11,43 @@
 
 <ion-content padding>
     <ion-list>
-      <div *ngFor="let cerradura of listadoCerraduras">
-        <ion-item-sliding>
+        <ion-item-sliding *ngFor="let cerradura of listadoCerraduras">
           <ion-item>
-            <ion-avatar item-start>
-              <img src="{{ cerradura.esPropia ? 'assets/imgs/keys-icon.png' : 'assets/imgs/key-icon.png'}}">
-            </ion-avatar>
-            <h2>{{ cerradura.descripcion }}</h2>
-            <p>({{cerradura.esPropia ? 'Propia' : 'Compartida'}})</p>
+                <ion-avatar item-start>
+                  <img src="{{ cerradura.esPropia ? 'assets/imgs/keys-icon.png' : 'assets/imgs/key-icon.png'}}">
+                </ion-avatar>
+                <h2>{{ cerradura.descripcion }}</h2>     
+                <p>({{cerradura.esPropia ? 'Propia' : 'Compartida'}})</p>
+
+                <ion-fab middle right edge>
+                    <button ion-fab color="primary"><ion-icon name="{{ cerradura.estaAbierta ? 'unlock' : 'lock' }}"></ion-icon></button>
+                    <ion-fab-list side="left">
+                      <button (click)="toogleAperturaWifi(cerradura)" ion-fab><ion-icon name="wifi"></ion-icon></button>
+                      <button (click)="toogleAperturaSms(cerradura)" ion-fab><ion-icon name="mail"></ion-icon></button>
+                      <button (click)="toogleAperturaBluetooth(cerradura)" ion-fab><ion-icon name="bluetooth"></ion-icon></button>
+                      <!--button *ngIf="cerradura.esPropia" ion-fab><ion-icon name="share"></ion-icon></button-->
+                    </ion-fab-list>
+                </ion-fab>
           </ion-item>
+
           <ion-item-options side="right">
+            <button ion-button color="secondary"  (click)="toogleAperturaWifi(cerradura)" >
+              <ion-icon name="wifi"></ion-icon>
+              {{ cerradura.estaAbierta ? 'Cerrar':'Abrir' }}
+            </button>
+            <button ion-button color="secondary">
+            <ion-icon name="mail"></ion-icon>
+              {{ cerradura.estaAbierta ? 'Cerrar':'Abrir' }}
+            </button>
             <button ion-button color="secondary">
               <ion-icon name="bluetooth"></ion-icon>
               {{ cerradura.estaAbierta ? 'Cerrar':'Abrir' }}
             </button>
-            <button ion-button color="secondary">
-              <ion-icon name="mail"></ion-icon>
-              {{ cerradura.estaAbierta ? 'Cerrar':'Abrir' }}
-          </button>
-            <button ion-button color="secondary"  (click)="toogleAperturaWifi(cerradura)" >
-                <ion-icon name="wifi"></ion-icon>
-                {{ cerradura.estaAbierta ? 'Cerrar':'Abrir' }}
-              </button>
-              <button *ngIf="cerradura.esPropia" ion-button color="secondary">
-                  <ion-icon name="share"></ion-icon>
-                  Compartir
-                </button>
+            <button *ngIf="cerradura.esPropia" ion-button color="secondary">
+                <ion-icon name="share"></ion-icon>
+                Compartir
+             </button>
+
         
           </ion-item-options>
           <ion-item-options *ngIf="cerradura.esPropia" side="left">
@@ -47,7 +58,7 @@
           </ion-item-options>
         </ion-item-sliding>
 
-        </div>
+        
           </ion-list>
           <ion-fab right bottom>
               <button ion-fab color="danger" (click)="nuevaCerradura()"><ion-icon name="add"></ion-icon></button>

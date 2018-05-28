@@ -17,9 +17,13 @@ import { RedListadoPage } from '../pages/red-listado/red-listado';
 import { VincularBluetoothPage } from '../pages/vincular-bluetooth/vincular-bluetooth';
 import { RedAltaPage } from '../pages/red-alta/red-alta';
 import { CerraduraAltaPage } from '../pages/cerradura-alta/cerradura-alta';
+import { GralConfiguracionPage } from '../pages/gral-configuracion/gral-configuracion';
+
 
 import { RedesProvider } from '../providers/redes/redes';
 import { CerradurasProvider } from '../providers/cerraduras/cerraduras';
+import { HttpCommandsProvider } from '../providers/http-commands/http-commands';
+import { SmsProvider } from '../providers/sms/sms';
 
 
 
@@ -34,7 +38,8 @@ import { CerradurasProvider } from '../providers/cerraduras/cerraduras';
     RedListadoPage,
     VincularBluetoothPage,
     RedAltaPage,
-    CerraduraAltaPage
+    CerraduraAltaPage,
+    GralConfiguracionPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +56,8 @@ import { CerradurasProvider } from '../providers/cerraduras/cerraduras';
     RedListadoPage,
     VincularBluetoothPage,
     RedAltaPage,
-    CerraduraAltaPage
+    CerraduraAltaPage,
+    GralConfiguracionPage
   ],
   providers: [
     StatusBar,
@@ -62,7 +68,9 @@ import { CerradurasProvider } from '../providers/cerraduras/cerraduras';
     HTTP,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     RedesProvider,
-    CerradurasProvider
+    CerradurasProvider,
+    HttpCommandsProvider,
+    SmsProvider
   ]
 })
 export class AppModule {}

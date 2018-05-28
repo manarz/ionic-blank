@@ -9,8 +9,7 @@ import { PruebaEnvioSmsPage } from '../pages/prueba-envio-sms/prueba-envio-sms';
 import { CerraduraListadoPage } from '../pages/cerradura-listado/cerradura-listado';
 import { RedListadoPage } from '../pages/red-listado/red-listado';
 import { VincularBluetoothPage } from '../pages/vincular-bluetooth/vincular-bluetooth';
-
-
+import { GralConfiguracionPage } from '../pages/gral-configuracion/gral-configuracion';
 
 @Component({
   templateUrl: 'app.html'
@@ -30,6 +29,7 @@ export class MyApp {
                 {titulo:"Notificaciones sms",  component:PruebaEnvioSmsPage  ,icon:"mail"},
                 {titulo:"Bluetooth BLE",       component:PruebaBleListarDispositivosPage  ,icon:"information-circle"},
                 {titulo:"Detalle BLE",         component:PruebaBleDetalleConexionPage,icon:"code-working"},
+                {titulo:"Configuracion",       component:GralConfiguracionPage,icon:"construct"}
 
     ];
     platform.ready().then(() => {
