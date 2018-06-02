@@ -10,6 +10,7 @@ import { CerraduraListadoPage } from '../pages/cerradura-listado/cerradura-lista
 import { RedListadoPage } from '../pages/red-listado/red-listado';
 import { VincularBluetoothPage } from '../pages/vincular-bluetooth/vincular-bluetooth';
 import { GralConfiguracionPage } from '../pages/gral-configuracion/gral-configuracion';
+import { LoginPage } from '../pages/login/login';
 
 @Component({
   templateUrl: 'app.html'
@@ -21,7 +22,7 @@ export class MyApp {
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
 
-    this.rootPage = CerraduraListadoPage;
+    this.rootPage = LoginPage;
     this.pages=[{titulo:"Cerraduras y llaves", component: CerraduraListadoPage,icon:"key"},
                 {titulo:"Vincular Bluetooth",  component: VincularBluetoothPage, icon:"bluetooth"},
                 {titulo:"Mis Redes",           component: RedListadoPage,icon:"wifi"},

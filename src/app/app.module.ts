@@ -9,6 +9,10 @@ import { SMS } from '@ionic-native/sms';
 import { HTTP } from '@ionic-native/http';
 
 import { MyApp } from './app.component';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth'; 
+import { FIREBASE_CONFIG } from './app.firebase.config';
+
 import { PruebaBleListarDispositivosPage } from '../pages/prueba-ble-listar-dispositivos/prueba-ble-listar-dispositivos';
 import { PruebaBleDetalleConexionPage } from '../pages/prueba-ble-detalle-conexion/prueba-ble-detalle-conexion';
 import { PruebaEnvioSmsPage } from '../pages/prueba-envio-sms/prueba-envio-sms';
@@ -24,12 +28,17 @@ import { RedesProvider } from '../providers/redes/redes';
 import { CerradurasProvider } from '../providers/cerraduras/cerraduras';
 import { HttpCommandsProvider } from '../providers/http-commands/http-commands';
 import { SmsProvider } from '../providers/sms/sms';
+import { LoginPage } from '../pages/login/login';
+import { RegistrarsePage } from '../pages/registrarse/registrarse';
 
 
 
 @NgModule({
   declarations: [
     MyApp,
+
+    LoginPage,
+    RegistrarsePage,
 
     PruebaBleListarDispositivosPage,
     PruebaBleDetalleConexionPage,
@@ -43,12 +52,18 @@ import { SmsProvider } from '../providers/sms/sms';
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    AngularFireAuthModule,
     IonicModule.forRoot(MyApp)
   ],
+  
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
- 
+
+    LoginPage,
+    RegistrarsePage,
+
     PruebaBleListarDispositivosPage,
     PruebaBleDetalleConexionPage,
     PruebaEnvioSmsPage,

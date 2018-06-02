@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AngularFireAuth } from 'angularfire2/auth'; 
 
 import { HTTP } from '@ionic-native/http';
 import { HttpCommandsProvider } from '../../providers/http-commands/http-commands';
@@ -8,6 +9,7 @@ import { CerradurasProvider } from '../../providers/cerraduras/cerraduras';
 import { SmsProvider } from '../../providers/sms/sms';
 
 import { CerraduraAltaPage } from '../cerradura-alta/cerradura-alta';
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'page-cerradura-listado',
@@ -23,7 +25,8 @@ export class CerraduraListadoPage {
     public alertCtrl: AlertController,
     public cerradurasProv: CerradurasProvider,
     public httpCommandsProv: HttpCommandsProvider,
-    public smsCommandsProv: SmsProvider
+    public smsCommandsProv: SmsProvider,
+    private afAuth:AngularFireAuth
   ) {
     this.listadoCerraduras = this.cerradurasProv.getCerraduras();
   }
@@ -55,5 +58,19 @@ export class CerraduraListadoPage {
   }
   public toogleAperturaBluetooth(cerradura){
 
+  }
+  public async logout(){
+    try{
+      const result = await this.afAuth.auth.signOut();
+      console.log("Logout exitoso" );
+      console.log(result);
+      this.goToLogin();
+    } catch(e){
+      console.log("Login fallido");
+      console.log(e);
+    }
+  }
+  public goToLogin(){
+    this.navCtrl.setRoot(LoginPage);
   }
 }
