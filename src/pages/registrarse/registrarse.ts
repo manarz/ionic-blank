@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { User } from '../../models/user';
 import { AngularFireAuth } from 'angularfire2/auth'; 
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'page-registrarse',
@@ -17,11 +18,14 @@ export class RegistrarsePage {
       const result= await this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password);
       console.log("Usuario registrado");
       console.log(result);
+
     }
     catch(e){
       console.log("Usuario NO registrado");
       console.log(e);
     }
   }
-
+  goToLoginPage(){
+    this.navCtrl.setRoot(LoginPage);
+  }
 }

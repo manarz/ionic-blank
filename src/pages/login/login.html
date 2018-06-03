@@ -15,6 +15,18 @@
     <ion-label floating>Password</ion-label>
     <ion-input type="password" [(ngModel)]="user.password"></ion-input>
   </ion-item>
-<button ion-button (click)="login(user)">Login</button>
-<button ion-button (click)="registrar()">Registrarme</button>
+
+<ion-list>
+    <button ion-button block (click)="login(user)">Login</button>
+
+    <button ion-button icon-left block clear (click)="signInWithGoogle()">
+      <ion-icon name="logo-google"></ion-icon>
+      Log in con Google
+    </button>
+
+    <button ion-button icon-left block clear (click)="registrar()">
+      <ion-icon name="person-add"></ion-icon>
+      Registrarme
+    </button>
+</ion-list>
 </ion-content>

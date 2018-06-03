@@ -56,7 +56,7 @@ import { RegistrarsePage } from '../pages/registrarse/registrarse';
     AngularFireAuthModule,
     IonicModule.forRoot(MyApp)
   ],
-  
+
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
