@@ -6,8 +6,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { CerraduraListadoPage } from '../cerradura-listado/cerradura-listado';
 import { AuthProvider, FirebaseAuth } from '@firebase/auth-types';
 import { FirebaseApp } from 'angularfire2';
-import * as firebase from 'firebase';
-
+import firebase from 'firebase/app';
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
